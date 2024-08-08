@@ -1,47 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PicShare</title>
-
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-
-
-    <link rel="stylesheet" href="/css/styles.css" />
-    
-  </head>
-  <body>
-    <div class="container mt-5">
-      <h1 class="mb-4">PicShare Gallery</h1>
-      <a href="/upload" class="btn btn-success mb-4">Upload Photo</a>
-      <div class="row gallery">
-        <% photos.forEach(photo => { %>
-        <div class="col-md-4 mb-4">
-          <div class="card">
-            <img
-              src="<%= photo.imagePath %>"
-              class="card-img-top"
-              alt="<%= photo.title %>"
-            />
-            <div class="card-body">
-              <h5 class="card-title"><%= photo.title %></h5>
-              <p class="card-text"><%= photo.description %></p>
-              <form
-                action="/delete/<%= photo._id %>"
-                method="POST"
-                class="d-inline"
-              >
-                <button type="submit" class="btn btn-danger">Delete</button>
-              </form>
-            </div>
-          </div>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Gallery</h1>
+        <a href="/upload" class="btn">Photo Upload</a>
+        <div class="gallery">
+            <% photos.forEach(photo => { %>
+                <div class="card">
+                    <img src="<%= photo.imagePath %>" class="card-img" alt="<%= photo.title %>">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= photo.title %></h5>
+                        <p class="card-text"><%= photo.description %></p>
+                        <form action="/delete/<%= photo._id %>" method="POST" class="delete-form">
+                            <button type="submit" class="btn-delete">Remove Photo</button>
+                        </form>
+                    </div>
+                </div>
+            <% }) %>
         </div>
-        <% }) %>
-      </div>
     </div>
-  </body>
+</body>
 </html>

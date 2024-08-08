@@ -6,7 +6,7 @@ const methodOverride = require('method-override');
 const app = express();
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://hritikarora875:eQl5M0RMkwt3xP5J@cluster0.vwss2yc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://test:test@cluster0.660yxlb.mongodb.net/database?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
